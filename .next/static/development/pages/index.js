@@ -5534,37 +5534,36 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('this.state.categories-->', this.state.categories);
       return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_8__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 38
+          lineNumber: 36
         },
         __self: this
       }, __jsx(_components_banner__WEBPACK_IMPORTED_MODULE_9__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 39
+          lineNumber: 37
         },
         __self: this
       }), __jsx(_components_categories__WEBPACK_IMPORTED_MODULE_10__["default"], {
         categories: this.state.categories,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 40
+          lineNumber: 38
         },
         __self: this
       }), __jsx(_components_shipping__WEBPACK_IMPORTED_MODULE_11__["default"], {
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 41
+          lineNumber: 39
         },
         __self: this
       }), __jsx(_components_featured__WEBPACK_IMPORTED_MODULE_12__["default"], {
         products: this.state.products,
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 42
+          lineNumber: 40
         },
         __self: this
       }));

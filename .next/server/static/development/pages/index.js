@@ -1316,37 +1316,36 @@ class IndexPage extends react__WEBPACK_IMPORTED_MODULE_1___default.a.Component {
   }
 
   render() {
-    console.log('this.state.categories-->', this.state.categories);
     return __jsx(_components_layout__WEBPACK_IMPORTED_MODULE_2__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 38
+        lineNumber: 36
       },
       __self: this
     }, __jsx(_components_banner__WEBPACK_IMPORTED_MODULE_3__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 39
+        lineNumber: 37
       },
       __self: this
     }), __jsx(_components_categories__WEBPACK_IMPORTED_MODULE_4__["default"], {
       categories: this.state.categories,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 40
+        lineNumber: 38
       },
       __self: this
     }), __jsx(_components_shipping__WEBPACK_IMPORTED_MODULE_5__["default"], {
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 41
+        lineNumber: 39
       },
       __self: this
     }), __jsx(_components_featured__WEBPACK_IMPORTED_MODULE_6__["default"], {
       products: this.state.products,
       __source: {
         fileName: _jsxFileName,
-        lineNumber: 42
+        lineNumber: 40
       },
       __self: this
     }));

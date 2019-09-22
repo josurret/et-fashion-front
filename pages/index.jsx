@@ -32,8 +32,6 @@ export default class IndexPage extends React.Component {
     }
 
     render() {
-
-        console.log('this.state.categories-->', this.state.categories)
         return (
             <Layout>
                 <Banner/>
