@@ -47,8 +47,8 @@ export default class AppFooter extends React.Component {
                                           method="get" className="subscribe_form relative mail_part">
                                         <input type="email" name="email" id="newsletter-form-email"
                                                placeholder="Email Address"
-                                               className="placeholder hide-on-focus" onFocus="this.placeholder = ''"
-                                               onBlur="this.placeholder = ' Email Address '"/>
+                                               className="placeholder hide-on-focus"
+                                               />
                                             <button type="submit" name="submit" id="newsletter-submit"
                                                     className="email_icon newsletter-submit button-contactForm">subscribe
                                             </button>

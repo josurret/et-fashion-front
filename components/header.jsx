@@ -18,57 +18,16 @@ export default class AppHeader extends React.Component {
                                 <div className="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                                     <ul className="navbar-nav">
                                         <li className="nav-item">
-                                            <a className="nav-link" href="index.html">Home</a>
+                                            <a className="nav-link" href="index">Home</a>
                                         </li>
-                                        <li className="nav-item dropdown">
-                                            <a className="nav-link dropdown-toggle" href="blog.html"
-                                               id="navbarDropdown_1"
-                                               role="button" data-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                Shop
-                                            </a>
-                                            <div className="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                                <a className="dropdown-item" href="category.html"> shop category</a>
-                                                <a className="dropdown-item" href="single-product.html">product
-                                                    details</a>
-
-                                            </div>
-                                        </li>
-                                        <li className="nav-item dropdown">
-                                            <a className="nav-link dropdown-toggle" href="blog.html"
-                                               id="navbarDropdown_3"
-                                               role="button" data-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                pages
-                                            </a>
-                                            <div className="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                                <a className="dropdown-item" href="login.html">
-                                                    login
-
-                                                </a>
-                                                <a className="dropdown-item" href="tracking.html">tracking</a>
-                                                <a className="dropdown-item" href="checkout.html">product checkout</a>
-                                                <a className="dropdown-item" href="cart.html">shopping cart</a>
-                                                <a className="dropdown-item" href="confirmation.html">confirmation</a>
-                                                <a className="dropdown-item" href="elements.html">elements</a>
-                                            </div>
-                                        </li>
-
-                                        <li className="nav-item dropdown">
-                                            <a className="nav-link dropdown-toggle" href="blog.html"
-                                               id="navbarDropdown_2"
-                                               role="button" data-toggle="dropdown" aria-haspopup="true"
-                                               aria-expanded="false">
-                                                blog
-                                            </a>
-                                            <div className="dropdown-menu" aria-labelledby="navbarDropdown_2">
-                                                <a className="dropdown-item" href="blog.html"> blog</a>
-                                                <a className="dropdown-item" href="single-blog.html">Single blog</a>
-                                            </div>
-                                        </li>
-
                                         <li className="nav-item">
-                                            <a className="nav-link" href="contact.html">Contact</a>
+                                            <a className="nav-link" href="about">About</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a className="nav-link" href="login">Login</a>
+                                        </li>
+                                        <li className="nav-item">
+                                            <a className="nav-link" href="contactus">Contact</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -79,21 +38,12 @@ export default class AppHeader extends React.Component {
                                             <i className="ti-bag"></i>
                                         </a>
                                     </div>
-                                    <a id="search_1" href="javascript:void(0)"><i className="ti-search"></i></a>
+                                    <a id="search_1" href=""><i className="ti-search"></i></a>
                                 </div>
                             </nav>
                         </div>
                     </div>
                 </div>
-                {/*<div className="search_input" id="search_input_box">*/}
-                {/*    <div className="container ">*/}
-                {/*        <form className="d-flex justify-content-between search-inner">*/}
-                {/*            <input type="text" className="form-control" id="search_input" placeholder="Search Here"/>*/}
-                {/*            <button type="submit" className="btn"></button>*/}
-                {/*            <span className="ti-close" id="close_search" title="Close Search"></span>*/}
-                {/*        </form>*/}
-                {/*    </div>*/}
-                {/*</div>*/}
             </header>
         )
     }
