@@ -3,7 +3,7 @@ export const AUTH = {
 };
 
 export const API = {
-  base: 'http://127.0.0.1:3000',
+  base: 'http://40.121.14.101',
   api: {
     categories: '/api/categories',
     products: '/api/products'
