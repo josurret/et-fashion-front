@@ -5,30 +5,27 @@ import Categories from '../components/categories'
 import Shipping from '../components/shipping'
 import Featured from '../components/featured'
 import axios from 'axios';
+import { API } from '../core/constants';
 
 
 export default class IndexPage extends React.Component {
     state = {
         categories: [],
         products: []
-    }
+    };
 
     componentDidMount() {
-        axios.get(`http://127.0.0.1:3000/api/categories`)
+        axios.get(API.base + API.api.categories)
             .then(res => {
                 const categories = res.data;
                 this.setState({categories});
-            }).catch(err => {
-            console.log(err)
-        })
+            });
 
-        axios.get(`http://127.0.0.1:3000/api/products`)
+        axios.get(API.base + API.api.products)
             .then(res => {
                 const products = res.data;
                 this.setState({products});
-            }).catch(err => {
-            console.log(err)
-        })
+            });
     }
 
     render() {

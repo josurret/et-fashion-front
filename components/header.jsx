@@ -1,19 +1,12 @@
-import React, {useCallback} from 'react'
+import React from 'react'
+import { GoogleLogin, GoogleLogout } from 'react-google-login';
+import { AUTH } from '../core/constants';
 
 export default class AppHeader extends React.Component {
-    state = {
-        usaerName: null
-    }
-
-    componentDidMount() {
-        var userName = localStorage.getItem('userName');
-        console.log("userData-->", userName)
-        this.setState({userName: userName})
-    }
 
     render() {
 
-        const {userName} = this.state
+        const {user, login, logout} = this.props;
 
         return (
             <header className="main_menu home_menu">
@@ -31,34 +24,47 @@ export default class AppHeader extends React.Component {
 
                                 <div className="collapse navbar-collapse main-menu-item" id="navbarSupportedContent">
                                     <ul className="navbar-nav">
+                                        {
+                                            (user === null || user === undefined) &&
+                                            <li style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                                <GoogleLogin
+                                                    clientId={AUTH.clientId}
+                                                    buttonText="Login"
+                                                    onSuccess={login}
+                                                    cookiePolicy={'none'}
+                                                />
+                                            </li>
+                                        }
                                         <li className="nav-item">
                                             <a className="nav-link" href="index">Home</a>
                                         </li>
                                         <li className="nav-item">
                                             <a className="nav-link" href="about">About</a>
                                         </li>
-                                        { userName != null ?
-                                            <li className="nav-item">
-                                                <a className="nav-link" href="login">Logout</a>
-                                            </li> :
-                                            <li className="nav-item">
-                                                <a className="nav-link" href="login">Login</a>
-                                            </li>
-                                        }
 
                                         <li className="nav-item">
                                             <a className="nav-link" href="contactus">Contact</a>
                                         </li>
+                                        {
+                                            user !== null &&
+                                            <li style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                                                <GoogleLogout
+                                                    clientId={AUTH.clientId}
+                                                    buttonText="Logout"
+                                                    onLogoutSuccess={logout}
+                                                >
+                                                </GoogleLogout></li>
+                                        }
                                     </ul>
                                 </div>
                                 <div className="hearer_icon d-flex">
                                     <div className="dropdown cart">
                                         <a className="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i className="ti-bag">{userName != null ? 'Hola camilo' : null}</i>
+                                            <i className="ti-bag">{user !== null ? `Hola ${user.givenName}` : ''}</i>
                                         </a>
                                     </div>
-                                    <a id="search_1" href=""><i className="ti-search"></i></a>
+                                    <a id="search_1"><i className="ti-search"></i></a>
                                 </div>
                             </nav>
                         </div>

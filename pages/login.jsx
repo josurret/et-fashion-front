@@ -1,34 +1,14 @@
 import React from 'react'
 import Layout from '../components/layout'
-import {GoogleLogin} from 'react-google-login'
-import {GoogleLogout} from 'react-google-login';
-import {Router} from '../routes'
-
-const responseGoogle = (response) => {
-    // console.log(response.profileObj);
-    localStorage.setItem('userName', response.profileObj.givenName);
-    Router.pushRoute('/')
-}
-
-const logoutGoogle = () => {
-    localStorage.removeItem('userName');
-    Router.pushRoute('/')
-}
 
 export default class Login extends React.Component {
 
     state = {
-        usaerName: null
-    }
-
-    componentDidMount() {
-        var userName = localStorage.getItem('userName');
-        console.log("userData-->", userName)
-        this.setState({userName: userName})
-    }
+        user: null
+    };
 
     render() {
-        const {userName} = this.state
+        const { user } = this.state;
 
         return (
             <Layout>
@@ -50,28 +30,6 @@ export default class Login extends React.Component {
                                     <div className="login_part_form_iner">
                                         <h3>Welcome Back ! <br></br>
                                             Please Sign in now</h3>
-                                        <form className="row contact_form" action="#" method="post"
-                                              noValidate="novalidate">
-                                            {
-                                                userName != null ?
-                                                    <GoogleLogout
-                                                        clientId="346658604757-8lt4al8por29og57s5qq2lpo8imcm57a.apps.googleusercontent.com"
-                                                        buttonText="Logout"
-                                                        onLogoutSuccess={logoutGoogle}
-                                                    >
-                                                    </GoogleLogout> :
-
-                                                    <GoogleLogin
-                                                        clientId="346658604757-8lt4al8por29og57s5qq2lpo8imcm57a.apps.googleusercontent.com"
-                                                        buttonText="Login"
-                                                        onSuccess={responseGoogle}
-                                                        onFailure={responseGoogle}
-                                                        cookiePolicy={'none'}
-                                                    />
-                                            }
-
-
-                                        </form>
                                     </div>
                                 </div>
                             </div>
