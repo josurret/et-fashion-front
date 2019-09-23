@@ -44,7 +44,7 @@ export default class AboutUs extends React.Component {
                             <h3 className="mb-30">AboutUs</h3>
                             <div className="row">
                                 <div className="col-md-3">
-                                    <img src="img/elements/d.jpg" alt="" className="img-fluid"/>
+                                    <img src="/static/assets/template/winter/img/elements/d.jpg" alt="" className="img-fluid"/>
                                 </div>
                                 <div className="col-md-9 mt-sm-20">
                                     <p>Recently, the US Federal government banned online casinos from operating in
@@ -101,7 +101,7 @@ export default class AboutUs extends React.Component {
                                         talk a little about what symptoms</p>
                                 </div>
                                 <div className="col-md-3">
-                                    <img src="img/elements/d.jpg" alt="" className="img-fluid"/>
+                                    <img src="/static/assets/template/winter/img/elements/d.jpg" alt="" className="img-fluid"/>
                                 </div>
                             </div>
                         </div>
