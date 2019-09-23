@@ -1,14 +1,28 @@
-import React from 'react'
+import React, {useCallback} from 'react'
 
 export default class AppHeader extends React.Component {
+    state = {
+        usaerName: null
+    }
+
+    componentDidMount() {
+        var userName = localStorage.getItem('userName');
+        console.log("userData-->", userName)
+        this.setState({userName: userName})
+    }
+
     render() {
+
+        const {userName} = this.state
+
         return (
             <header className="main_menu home_menu">
                 <div className="container-fluid">
                     <div className="row align-items-center justify-content-center">
                         <div className="col-lg-11">
                             <nav className="navbar navbar-expand-lg navbar-light">
-                                <a className="navbar-brand" href="index.html"/> <img src="/static/assets/template/winter/img/logo.png" alt="logo"/>
+                                <a className="navbar-brand" href="index.html"/> <img
+                                src="/static/assets/template/winter/img/logo.png" alt="logo"/>
                                 <button className="navbar-toggler" type="button" data-toggle="collapse"
                                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                                         aria-expanded="false" aria-label="Toggle navigation">
@@ -23,9 +37,15 @@ export default class AppHeader extends React.Component {
                                         <li className="nav-item">
                                             <a className="nav-link" href="about">About</a>
                                         </li>
-                                        <li className="nav-item">
-                                            <a className="nav-link" href="login">Login</a>
-                                        </li>
+                                        { userName != null ?
+                                            <li className="nav-item">
+                                                <a className="nav-link" href="login">Logout</a>
+                                            </li> :
+                                            <li className="nav-item">
+                                                <a className="nav-link" href="login">Login</a>
+                                            </li>
+                                        }
+
                                         <li className="nav-item">
                                             <a className="nav-link" href="contactus">Contact</a>
                                         </li>
@@ -35,7 +55,7 @@ export default class AppHeader extends React.Component {
                                     <div className="dropdown cart">
                                         <a className="dropdown-toggle" href="#" id="navbarDropdown3" role="button"
                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i className="ti-bag"></i>
+                                            <i className="ti-bag">{userName != null ? 'Hola camilo' : null}</i>
                                         </a>
                                     </div>
                                     <a id="search_1" href=""><i className="ti-search"></i></a>

@@ -32,7 +32,6 @@ export default class IndexPage extends React.Component {
     }
 
     render() {
-        console.log('toma')
         return (
             <Layout>
                 <Banner/>

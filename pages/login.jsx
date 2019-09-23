@@ -1,9 +1,35 @@
 import React from 'react'
 import Layout from '../components/layout'
+import {GoogleLogin} from 'react-google-login'
+import {GoogleLogout} from 'react-google-login';
+import {Router} from '../routes'
 
+const responseGoogle = (response) => {
+    // console.log(response.profileObj);
+    localStorage.setItem('userName', response.profileObj.givenName);
+    Router.pushRoute('/')
+}
+
+const logoutGoogle = () => {
+    localStorage.removeItem('userName');
+    Router.pushRoute('/')
+}
 
 export default class Login extends React.Component {
+
+    state = {
+        usaerName: null
+    }
+
+    componentDidMount() {
+        var userName = localStorage.getItem('userName');
+        console.log("userData-->", userName)
+        this.setState({userName: userName})
+    }
+
     render() {
+        const {userName} = this.state
+
         return (
             <Layout>
                 <section className="login_part section_padding">
@@ -26,26 +52,25 @@ export default class Login extends React.Component {
                                             Please Sign in now</h3>
                                         <form className="row contact_form" action="#" method="post"
                                               noValidate="novalidate">
-                                            <div className="col-md-12 form-group p_star">
-                                                <input type="text" className="form-control" id="name" name="name"
-                                                       value=""
-                                                       placeholder="Username"/>
-                                            </div>
-                                            <div className="col-md-12 form-group p_star">
-                                                <input type="password" className="form-control" id="password"
-                                                       name="password" value=""
-                                                       placeholder="Password"/>
-                                            </div>
-                                            <div className="col-md-12 form-group">
-                                                <div className="creat_account d-flex align-items-center">
-                                                    <input type="checkbox" id="f-option" name="selector"/>
-                                                        <label htmlFor="f-option">Remember me</label>
-                                                </div>
-                                                <button type="submit" value="submit" className="btn_3">
-                                                    log in
-                                                </button>
-                                                <a className="lost_pass" href="#">forget password?</a>
-                                            </div>
+                                            {
+                                                userName != null ?
+                                                    <GoogleLogout
+                                                        clientId="346658604757-8lt4al8por29og57s5qq2lpo8imcm57a.apps.googleusercontent.com"
+                                                        buttonText="Logout"
+                                                        onLogoutSuccess={logoutGoogle}
+                                                    >
+                                                    </GoogleLogout> :
+
+                                                    <GoogleLogin
+                                                        clientId="346658604757-8lt4al8por29og57s5qq2lpo8imcm57a.apps.googleusercontent.com"
+                                                        buttonText="Login"
+                                                        onSuccess={responseGoogle}
+                                                        onFailure={responseGoogle}
+                                                        cookiePolicy={'none'}
+                                                    />
+                                            }
+
+
                                         </form>
                                     </div>
                                 </div>
